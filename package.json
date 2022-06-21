@@ -1,0 +1,20 @@
+{
+  "name": "pdf-download",
+  "version": "1.0.0",
+  "description": "generate pdf using puppeteer,ejs styled html using tailwindcss",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "tailwind": "tailwind -i index.css -o tailwind.css",
+    "print": "node print.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "puppeteer": "^14.4.0",
+    "tailwindcss": "^3.1.3"
+  }
+}

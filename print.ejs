@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Receipt for</title>
+
+    <style>
+      body {
+        background: rgba(0, 0, 0, 0.5);
+        font-family: "Public Sans", sans-serif;
+      }
+      page[size="A4"] {
+        background: white;
+        width: 21cm;
+        height: 29.7cm;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 0.5cm;
+        box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+      }
+      .text-red {
+        color: red;
+      }
+      @media print {
+        body,
+        page[size="A4"] {
+          margin: 0;
+          box-shadow: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="receipts">
+      <% if (data.length > 0) { %> <% data.forEach((passenger,index) => { %>
+      <page size="A4" class="receipt px-12 py-6">
+        <div class="w-full flex flex-col">
+          <div class="relative px-2 pb-2">
+            <h1 class="text-green-600 font-bold tracking-wider text-2xl">
+              Receipt
+            </h1>
+          </div>
+          <div class="relative h-0.5 w-full bg-gray-400 mt-1"></div>
+          <!-- second div with the receipts headers -->
+          <div class="py-2">
+            <div class="py-4 bg-green-50 rounded-2xl px-2">
+              <div class="w-48 bg-green-600">
+                <h2 class="bg-white ml-2 pl-1 pr-3 text-lg">School Details</h2>
+              </div>
+
+              <div class="flex items-center w-full justify-between mt-1">
+                <div class="space-y-2 w-full">
+                  <div class="flex items-center w-3/4 justify-between">
+                    <p class="text-md font-[12px] w-1/2 font-bold">
+                      School Name<span class="text-gray-600 text-sm">#</span>
+                    </p>
+                    <p class="flex-start w-3/4 text-sm">Dorothy School</p>
+                  </div>
+                  <div class="flex items-center w-3/4 justify-between">
+                    <p class="text-md font-[12px] w-1/2 font-bold">
+                      Motto<span class="text-gray-600 text-sm">#</span>
+                    </p>
+                    <p class="flex-start w-3/4 text-sm">
+                      The best school in the world.
+                    </p>
+                  </div>
+                  <div class="flex items-center w-3/4 justify-between">
+                    <p class="text-md font-[12px] w-1/2 font-bold">
+                      Box<span class="text-gray-600 text-sm">#</span>
+                    </p>
+                    <p class="flex-start w-3/4 text-sm">
+                      P O Box 1234 AWKASJFASFL
+                    </p>
+                  </div>
+                  <div class="flex items-center w-3/4 justify-between">
+                    <p class="text-md font-[12px] w-1/2 font-bold">
+                      Tel<span class="text-gray-600 text-sm">#</span>
+                    </p>
+                    <p class="flex-start w-3/4 text-sm">
+                      <span> +27 11 456 7891</span>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="pr-3">
+                  <!-- logo of the corporation -->
+                  <img
+                    class="h-32 w-32 object-contain"
+                    src="https://res.cloudinary.com/drk1pa9km/image/upload/v1655266529/enaton_zqbx1n.jpg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- divider -->
+
+          <!-- receipt number -->
+          <div class="flex gap-2 pb-2">
+            <div
+              class="space-y-2 w-full py-4 px-2 bg-green-50 w-1/2 py-4 bg-green-50 rounded-2xl px-2 grow-0"
+            >
+              <div class="w-48 bg-green-600">
+                <h2 class="bg-white ml-2 pl-1 pr-3 text-lg">Receipt Details</h2>
+              </div>
+              <div class="flex items-center w-full justify-between">
+                <p class="text-md font-[12px] w-1/4 font-bold">
+                  Number<span class="text-gray-600 text-sm">#</span>
+                </p>
+                <p class="flex-start w-3/4 text-sm">DOR-338249912007</p>
+              </div>
+              <div class="flex items-center w-full justify-between">
+                <p class="text-md font-[12px] w-1/4 font-bold">
+                  Date<span class="text-gray-600 text-sm">#</span>
+                </p>
+                <p class="flex-start w-3/4 text-sm">
+                  20 December 2020, 10:00 AM
+                </p>
+              </div>
+              <div class="flex items-center w-full justify-between">
+                <p class="text-md font-[12px] w-1/4 font-bold">
+                  Amount<span class="text-gray-600 text-sm">#</span>
+                </p>
+                <p class="flex-start w-3/4 text-sm">KES 1,000.00</p>
+              </div>
+            </div>
+            <!-- second div for the billed person -->
+
+            <div
+              class="space-y-2 w-full py-4 px-2 bg-green-50 w-1/2 py-4 bg-green-50 rounded-2xl px-"
+            >
+              <div class="w-48 bg-green-600">
+                <h2 class="bg-white ml-2 pl-1 pr-3 text-lg">Billed To</h2>
+              </div>
+              <div class="flex items-center w-full justify-between">
+                <p class="text-md font-[12px] w-1/4 font-bold">
+                  Name<span class="text-gray-600 text-sm">#</span>
+                </p>
+                <p class="flex-start w-3/4 text-sm">Elvis Sautet</p>
+              </div>
+              <div class="flex items-center w-full justify-between">
+                <p class="text-md font-[12px] w-1/4 font-bold">
+                  Adm No<span class="text-gray-600 text-sm">#</span>
+                </p>
+                <p class="flex-start w-3/4 text-sm">KDC-1234</p>
+              </div>
+              <div class="flex items-center w-full justify-between">
+                <p class="text-md font-[12px] w-1/4 font-bold">
+                  Class<span class="text-gray-600 text-sm">#</span>
+                </p>
+                <p class="flex-start w-3/4 text-sm">Primary One</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative h-0.5 w-full bg-gray-500"></div>
+
+          <!-- payer details -->
+          <div
+            class="space-y-2 w-full py-4 px-2 bg-green-50 w-full py-4 bg-green-50 rounded-2xl px-2 grow-0 mt-3"
+          >
+            <div class="w-48 bg-green-600">
+              <h2 class="bg-white ml-2 pl-1 pr-3 text-lg">Payment Info</h2>
+            </div>
+            <div class="flex items-center w-full justify-between">
+              <p class="text-md font-[12px] w-1/4 font-bold">
+                Received From<span class="text-gray-600 text-sm">#</span>
+              </p>
+              <p class="flex-start w-3/4 text-sm">Peter Smith</p>
+            </div>
+            <div class="flex items-center w-full justify-between">
+              <p class="text-md font-[12px] w-1/4 font-bold">
+                Amount In Shiilings<span class="text-gray-600 text-sm">#</span>
+              </p>
+              <p class="flex-start w-3/4 text-sm">
+                Three Thousand Five Hundred Shiilings Only.
+              </p>
+            </div>
+          </div>
+          <!-- table and amount in shillings -->
+          <div class="w-full mt-3">
+            <table class="table-auto border-collapse w-full text-sm">
+              <thead class="bg-green-600">
+                <tr class="text-white">
+                  <th class="px-4 py-2 text-center">#</th>
+                  <th class="px-4 py-2 w-1/2 text-center">VoteHeads</th>
+                  <th class="px-4 py-2">Amount</th>
+                </tr>
+              </thead>
+              <tbody class="bg-white">
+                <tr class="text-center">
+                  <td class="border px-4 py-2">1</td>
+                  <td class="border px-4 py-2">Tuition Fee</td>
+                  <td class="border px-4 py-2">KES 1,000.00</td>
+                </tr>
+                <tr class="text-center">
+                  <td class="border px-4 py-2">2</td>
+                  <td class="border px-4 py-2">Transport</td>
+                  <td class="border px-4 py-2">KES 3,000.00</td>
+                </tr>
+                <tr class="text-center">
+                  <td class="border px-4 py-2">3</td>
+                  <td class="border px-4 py-2">Boarding</td>
+                  <td class="border px-4 py-2">KES 700.00</td>
+                </tr>
+                <tr class="text-right">
+                  <td class="px-4 py-2"></td>
+                  <td class="px-4 py-2 font-bold text-right">Total</td>
+                  <td class="border px-4 py-2 text-center">KES 700.00</td>
+                </tr>
+                <tr class="text-right">
+                  <td class="px-4 py-2"></td>
+                  <td class="px-4 py-2 font-bold text-right">Term Balance</td>
+                  <td class="border px-4 py-2 text-center">KES 17,000.00</td>
+                </tr>
+                <tr class="text-right">
+                  <td class="px-4 py-2"></td>
+                  <td class="px-4 py-2 font-bold text-right">Year Balance</td>
+                  <td class="border px-4 py-2 text-center">KES 22,000.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- payment type -->
+          <div class="flex justify-between items-baseline gap-3 mt-8">
+            <div
+              class="space-y-2 w-full py-4 px-2 bg-green-50 w-full py-4 bg-green-50 px-2 grow-0 mt-3"
+            >
+              <div class="w-48 bg-green-600">
+                <h2 class="bg-white ml-2 pl-1 pr-3 text-lg">Payment Type</h2>
+              </div>
+              <div class="flex items-center w-full justify-between">
+                <p class="text-md font-[12px] w-1/2 font-bold">Mobile Money</p>
+              </div>
+            </div>
+
+            <!-- signature -->
+            <div
+              class="space-y-2 w-full py-4 px-2 bg-green-50 w-full py-4 bg-green-50 px-2 grow-0"
+            >
+              <div class="w-48 bg-green-600">
+                <h2 class="bg-white ml-2 pl-1 pr-3 text-lg">
+                  Receipt Signature
+                </h2>
+              </div>
+              <div class="flex items-center w-full justify-between grow-0">
+                <p class="text-md font-[12px] w-1/4 font-neutral mt-3">
+                  .................................................................
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </page>
+      <% }); %> <% } %>
+    </div>
+  </body>
+</html>
